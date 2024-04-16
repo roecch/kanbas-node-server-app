@@ -5,9 +5,11 @@ import CourseRoutes from "./Kanbas/Courses/routes.js";
 import ModuleRoutes from "./Kanbas/Modules/routes.js";
 import UserRoutes from "./Kanbas/Users/routes.js";
 import cors from "cors";
-mongoose.connect("mongodb://127.0.0.1:27017/kanbas");
+
+mongoose.connect("mongodb+srv://chungmo:kFeOCYVEMyDV3HaV@cluster0.6ikctr1.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0", {dbName: 'kanbas'});
+
 const app = express();
-app.use(cors());
+app.use(cors({origin: true, credentials: true}));
 app.use(express.json());
 ModuleRoutes(app);
 CourseRoutes(app);
