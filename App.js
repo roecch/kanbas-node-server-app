@@ -8,7 +8,9 @@ import cors from "cors";
 import "dotenv/config";
 import session from "express-session";
 
-mongoose.connect("mongodb+srv://chungmo:kFeOCYVEMyDV3HaV@cluster0.6ikctr1.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0", {dbName: 'kanbas'});
+const CONNECTION_STRING = process.env.DB_CONNECTION_STRING || 'mongodb://127.0.0.1:27017/kanbas'
+
+mongoose.connect(CONNECTION_STRING, {dbName: 'kanbas'});
 
 const app = express();
 app.use(
