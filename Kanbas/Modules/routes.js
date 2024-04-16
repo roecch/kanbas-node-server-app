@@ -6,6 +6,7 @@ function ModuleRoutes(app) {
     const newModule = {
       ...req.body,
       course: cid,
+      id: new Date().getTime().toString(),
       _id: new Date().getTime().toString(),
     };
     const user = await dao.createModule(newModule);
